@@ -1,3 +1,15 @@
-<div class="w-full h-full string-interpolation font-azaro">
-    string interpolation
+<div
+  class="w-full text-center h-full string-interpolation font-azaro flex flex-wrap items-center justify-center gap-2 mx-auto pt-10"
+>
+  <h1 class="uppercase text-2xl pb-4 w-full">string interpolation</h1>
+  <div *ngFor="let product of products" class="">
+    <div
+      [style.background-color]="product.color"
+      class="flex items-center justify-center gap-2 flex-col font-montreau w-fit h-fit p-4 bg-zinc-200/40 text-white rounded-lg shadow-lg border"
+    >
+      <p>Name: {{ product.name }}</p>
+      <p>Price: {{ "$" + product.price }}</p>
+      <p>Color: {{ product.color }}</p>
+    </div>
+  </div>
 </div>
