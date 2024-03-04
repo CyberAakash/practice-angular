@@ -1,3 +1,19 @@
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
+
+@layer base {
+  @font-face {
+    font-family: "Montreau";
+    src: url("assets/fonts/montreau.ttf") format("truetype");
+    font-weight: normal;
+    font-style: normal;
+  }
+
+  @font-face {
+    font-family: "Azaro";
+    src: url("assets/fonts/azaro.otf") format("truetype");
+    font-weight: normal;
+    font-style: normal;
+  }
+}

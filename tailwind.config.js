@@ -2,7 +2,13 @@
 module.exports = {
   content: ["./src/**/*.{html,ts}"],
   theme: {
-    extend: {},
+    extend: {
+      fontFamily: {
+        montreau: ["Montreau"],
+        azaro: ["Azaro"],
+        // Add more custom font families as needed
+      },
+    },
   },
   plugins: [],
 };
