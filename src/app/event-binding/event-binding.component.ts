@@ -33,10 +33,15 @@ export class EventBindingComponent implements OnInit {
 
     // Now you can pass newData without the id property
     console.log(newData);
-    this.mockapi.updateProduct(id, newData).subscribe((res: any) => {
-      console.log(res);
-      this.products = res;
-      console.log(this.products);
+    this.mockapi.updateProduct(id, newData).subscribe((x: any) => {
+      console.log(x);
+      // this.products = res;
+      // console.log(this.products);
+      this.mockapi.getProduct().subscribe((res: any) => {
+        console.log(res);
+        this.products = res;
+        console.log(this.products);
+      });
     });
   }
 }

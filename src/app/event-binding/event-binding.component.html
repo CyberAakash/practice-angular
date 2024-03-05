@@ -10,7 +10,7 @@
       <p>Name: {{ product.name }}</p>
       <p>Price: {{ "$" + product.price }}</p>
       <p>Color: {{ product.color }}</p>
-      <input class="text-black p-1" [value]="product.name" (input)="onNameChange($event,i)">
+      <input type="text" class="text-black p-1" [value]="product.name" (input)="onNameChange($event, i)">
       <button
         [ngClass]="product.price < 100 ? 'opacity-40' : 'opacity-90'"
         [disabled]="!(product.price > 100)"
