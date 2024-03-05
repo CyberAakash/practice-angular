@@ -1,7 +1,7 @@
 <div
   class="w-full text-center h-full string-interpolation font-azaro flex flex-wrap items-center justify-center gap-2 mx-auto pt-10"
 >
-  <h1 class="uppercase text-2xl pb-4 w-full">string interpolation</h1>
+  <h1 class="uppercase text-2xl pb-4 w-full">Event Binding</h1>
   <div *ngFor="let product of products" class="">
     <div
       [style.background-color]="product.color"
@@ -10,7 +10,14 @@
       <p>Name: {{ product.name }}</p>
       <p>Price: {{ "$" + product.price }}</p>
       <p>Color: {{ product.color }}</p>
-      <button [ngClass]="product.price < 100 ? 'opacity-40' : 'opacity-90'" [disabled]="!(product.price > 100)">Buy Now</button>
+      <input class="text-black p-1" [value]="product.name" (input)="onNameChange($event,product.id)">
+      <button
+        [ngClass]="product.price < 100 ? 'opacity-40' : 'opacity-90'"
+        [disabled]="!(product.price > 100)"
+        (click)="update(product.id, product)"
+      >
+        Change name
+      </button>
     </div>
   </div>
 </div>

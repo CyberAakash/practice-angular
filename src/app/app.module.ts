@@ -5,11 +5,15 @@ import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { StringInterpolationComponent } from './string-interpolation/string-interpolation.component';
 import { HttpClientModule } from '@angular/common/http';
+import { EventBindingComponent } from './event-binding/event-binding.component';
+import { HomeComponent } from './home/home.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     StringInterpolationComponent,
+    EventBindingComponent,
+    HomeComponent,
   ],
   imports: [
     BrowserModule,

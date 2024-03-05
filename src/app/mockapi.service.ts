@@ -11,4 +11,7 @@ export class MockapiService {
   getProduct(){
     return this.http.get('https://65e5a616d7f0758a76e6f248.mockapi.io/api/products').pipe(map((res:any)=> res))
   }
+  updateProduct(id:any, data:any){
+    return this.http.put('https://65e5a616d7f0758a76e6f248.mockapi.io/products/' + id ,data).pipe(map((res:any)=> res))
+  }
 }
