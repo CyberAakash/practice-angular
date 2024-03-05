@@ -9,6 +9,7 @@ import { EventBindingComponent } from './event-binding/event-binding.component';
 import { HomeComponent } from './home/home.component';
 import { TwoWayBindingComponent } from './two-way-binding/two-way-binding.component';
 import { FormsModule } from '@angular/forms';
+import { ChildComponent } from './two-way-binding/child/child.component';
 @NgModule({
   declarations: [
     AppComponent,
@@ -16,6 +17,7 @@ import { FormsModule } from '@angular/forms';
     EventBindingComponent,
     HomeComponent,
     TwoWayBindingComponent,
+    ChildComponent,
   ],
   imports: [
     BrowserModule,

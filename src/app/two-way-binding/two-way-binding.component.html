@@ -20,7 +20,8 @@
     <div *ngFor="let product of filterProducts" class="">
       <div
         [ngStyle]="{ backgroundColor: product.color }"
-        class="flex items-center justify-center gap-2 flex-col font-montreau w-fit h-fit p-4 bg-zinc-200/40 text-white rounded-lg shadow-lg border"
+        class="overflow-hidden flex items-center justify-center gap-2 flex-col font-montreau w-fit h-fit p-4 bg-zinc-200/40 text-white rounded-lg shadow-lg border"
+        routerLink="/3/{{ product.id }}"
       >
         <!-- [style.background-color]="product.color" -->
         <p>Name: {{ product.name }}</p>
