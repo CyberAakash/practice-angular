@@ -20,8 +20,8 @@ export class EventBindingComponent implements OnInit {
 
   onNameChange(event:any, id:any) {
     console.log(event);
-    console.log(id-1);
-    this.products[id-1].name = event.target.value;
+    console.log(id);
+    this.products[id].name = event.target.value;
   }
 
   update(id:any, data:any) {

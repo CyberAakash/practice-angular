@@ -2,7 +2,7 @@
   class="w-full text-center h-full string-interpolation font-azaro flex flex-wrap items-center justify-center gap-2 mx-auto pt-10"
 >
   <h1 class="uppercase text-2xl pb-4 w-full">Event Binding</h1>
-  <div *ngFor="let product of products" class="">
+  <div *ngFor="let product of products; let i = index" class="">
     <div
       [style.background-color]="product.color"
       class="flex items-center justify-center gap-2 flex-col font-montreau w-fit h-fit p-4 bg-zinc-200/40 text-white rounded-lg shadow-lg border"
@@ -10,7 +10,7 @@
       <p>Name: {{ product.name }}</p>
       <p>Price: {{ "$" + product.price }}</p>
       <p>Color: {{ product.color }}</p>
-      <input class="text-black p-1" [value]="product.name" (input)="onNameChange($event,product.id)">
+      <input class="text-black p-1" [value]="product.name" (input)="onNameChange($event,i)">
       <button
         [ngClass]="product.price < 100 ? 'opacity-40' : 'opacity-90'"
         [disabled]="!(product.price > 100)"

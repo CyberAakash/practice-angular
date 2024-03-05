@@ -1,0 +1,32 @@
+<div
+  class="w-full text-center h-full string-interpolation font-azaro flex flex-wrap items-center justify-center gap-2 mx-auto pt-10"
+>
+  <h1 class="uppercase text-2xl pb-4 w-full">Two Way Binding</h1>
+  <div class="flex items-center justify-center gap-1 mx-20 w-full">
+    <input
+      (input)="searchProduct()"
+      class="p-1 min-w-full border px-2"
+      [(ngModel)]="searchText"
+    />
+    <button class="bg-black p-1 px-2 text-white" (click)="searchProduct()" [ngClass]="{'bg-zinc-300': searchText== '', 'bg-zinc-950 text-red-500': searchText != ''}">
+      Search
+    </button>
+  </div>
+
+  <p class="mb-10 w-full text-center" *ngIf="searchText != ''">
+    Searched text: {{ searchText }}
+  </p>
+  <ng-container *ngIf="filterProducts && filterProducts.length > 0">
+    <div *ngFor="let product of filterProducts" class="">
+      <div
+        [ngStyle]="{ backgroundColor: product.color }"
+        class="flex items-center justify-center gap-2 flex-col font-montreau w-fit h-fit p-4 bg-zinc-200/40 text-white rounded-lg shadow-lg border"
+      >
+        <!-- [style.background-color]="product.color" -->
+        <p>Name: {{ product.name }}</p>
+        <p>Price: {{ "$" + product.price }}</p>
+        <p>Color: {{ product.color }}</p>
+      </div>
+    </div>
+  </ng-container>
+</div>
