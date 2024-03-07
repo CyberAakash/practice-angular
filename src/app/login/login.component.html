@@ -10,55 +10,57 @@
     <div class="text-sm font-normal mb-4 text-center text-[#1e0e4b]">
       Log in to your account
     </div>
-    <form class="flex flex-col gap-3"  #form1="ngForm">
-        {{ form1.value | json }}
+    <form class="flex flex-col gap-3" #form1="ngForm">
+      {{ form1.value | json }}
       <div class="block relative">
         <label
-          for="email"
-          class="block text-gray-600 cursor-text text-sm leading-[140%] font-normal mb-2"
+          for="mail"
+          class="form-control block text-gray-600 cursor-text text-sm leading-[140%] font-normal mb-2"
           >Email</label
         >
         <input
           type="text"
-          id="email"
           class="rounded border border-gray-200 text-sm w-full font-normal leading-[18px] text-black tracking-[0px] appearance-none block h-11 m-0 p-[11px] focus:ring-2 ring-offset-2 ring-gray-900 outline-0"
-          [(ngModel)]="email"
-          name="email"
+          name="mail"
+          pattern="[a-zA-Z0-9.-_]{1,}@[a-zA-Z.-]{2,}[.]{1}[a-zA-Z]{2,}"
           required
-          email
-          
+          ngModel
+          #mail="ngModel"
         />
         <div
-          *ngIf="email.invalid && (email.dirty || email.touched)"
+          *ngIf="mail.invalid && (mail.dirty || mail.touched)"
           class="text-red-500"
         >
-          <div *ngIf="email.errors.required">Email is required.</div>
-          <div *ngIf="email.errors.email">
+          <div *ngIf="mail.errors?.['required']">Email is required.</div>
+          <div *ngIf="mail.errors?.['pattern']">
             Please enter a valid email address.
           </div>
         </div>
       </div>
       <div class="block relative">
         <label
-          for="password"
-          class="block text-gray-600 cursor-text text-sm leading-[140%] font-normal mb-2"
+          for="pass"
+          class="form-control block text-gray-600 cursor-text text-sm leading-[140%] font-normal mb-2"
           >Password</label
         >
         <input
           type="password"
-          id="password"
           class="rounded border border-gray-200 text-sm w-full font-normal leading-[18px] text-black tracking-[0px] appearance-none block h-11 m-0 p-[11px] focus:ring-2 ring-offset-2 ring-gray-900 outline-0"
-          [(ngModel)]="password"
-          name="password"
+          name="pass"
+          ngModel
+          #pass="ngModel"
           required
           minlength="8"
         />
+        <!-- <div>
+          {{ pass.errors | json }}
+        </div> -->
         <div
-          *ngIf="password.invalid && (password.dirty || password.touched)"
+          *ngIf="pass.invalid && (pass.dirty || pass.touched)"
           class="text-red-500"
         >
-          <div *ngIf="password.errors.required">Password is required.</div>
-          <div *ngIf="password.errors.minlength">
+          <div *ngIf="pass.errors?.['required']">Password is required.</div>
+          <div *ngIf="pass.errors?.['minlength']">
             Password must be at least 8 characters long.
           </div>
         </div>
@@ -66,7 +68,8 @@
       <button
         type="submit"
         class="bg-[#7747ff] w-max m-auto px-6 py-2 rounded text-white text-sm font-normal"
-        [disabled]="!form1.form.valid" (click)="authenticate(form1)"
+        [disabled]="!form1.form.valid"
+        (click)="authenticate(form1)"
       >
         Submit
       </button>

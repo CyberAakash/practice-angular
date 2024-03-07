@@ -7,12 +7,10 @@ import { Router } from '@angular/router';
   styleUrl: './login.component.css',
 })
 export class LoginComponent implements OnInit {
-  email: any = '';
-  password: any = '';
   public loginStatus: any = localStorage.getItem('loginStatus');
 
   constructor(private router: Router) {}
-  
+
   ngOnInit(): void {
     if (this.loginStatus == 'valid') {
       this.router.navigate(['/']);
@@ -22,15 +20,17 @@ export class LoginComponent implements OnInit {
   }
 
   authenticate(form: any) {
-    if (this.email === 'admin@gmail.com' && this.password === 'Admin@1234') {
+    if (form.value.mail === 'admin@gmail.com' && form.value.pass === 'Admin@1234') {
       // Redirect or perform necessary actions upon successful authentication
       alert('Authentication successful!');
+      // this.openSnackbar('Authentication successful!', 'close');
       form.reset();
       localStorage.setItem('loginStatus', 'valid');
       this.router.navigate(['/']);
     } else {
       // Handle authentication failure
       alert('Authentication failed. Incorrect email or password.');
+      // this.openSnackbar('Authentication failed. Incorrect email or password.', 'close');
       localStorage.setItem('loginStatus', 'invalid');
       form.reset();
     }
