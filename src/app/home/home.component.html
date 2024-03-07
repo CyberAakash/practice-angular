@@ -5,4 +5,7 @@
         <a class="p-1 rounded bg-zinc-300/40" href="/2">Event Binding</a>
         <a class="p-1 rounded bg-zinc-300/40" href="/3">Two way Binding</a>
     </div>
+    <button (click)="changeStatus()" class="bg-blue-500 text-white p-3 min-w-28 text-center absolute top-4 right-4 rounded-lg">
+        {{loginStatus == 'valid'? 'Logout' : 'Login'}}
+    </button>
 </div>

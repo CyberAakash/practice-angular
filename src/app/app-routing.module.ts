@@ -5,9 +5,11 @@ import { EventBindingComponent } from './event-binding/event-binding.component';
 import { HomeComponent } from './home/home.component';
 import { TwoWayBindingComponent } from './two-way-binding/two-way-binding.component';
 import { ChildComponent } from './two-way-binding/child/child.component';
+import { LoginComponent } from './login/login.component';
 
 const routes: Routes = [
   { path: '', component: HomeComponent },
+  { path: 'login', component: LoginComponent },
   { path: '1', component: StringInterpolationComponent },
   { path: '2', component: EventBindingComponent },
   { path: '3', component: TwoWayBindingComponent },

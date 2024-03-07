@@ -10,6 +10,7 @@ import { HomeComponent } from './home/home.component';
 import { TwoWayBindingComponent } from './two-way-binding/two-way-binding.component';
 import { FormsModule } from '@angular/forms';
 import { ChildComponent } from './two-way-binding/child/child.component';
+import { LoginComponent } from './login/login.component';
 @NgModule({
   declarations: [
     AppComponent,
@@ -18,6 +19,7 @@ import { ChildComponent } from './two-way-binding/child/child.component';
     HomeComponent,
     TwoWayBindingComponent,
     ChildComponent,
+    LoginComponent,
   ],
   imports: [
     BrowserModule,
